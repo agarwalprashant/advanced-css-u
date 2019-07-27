@@ -6,3 +6,204 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+
+}
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, #7ed56fad, #28b485a4), url('../img/hero.jpg');
+    background-size: cover;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+    position: relative;
+}
+
+.logo-box {
+    position: absolute;
+    /* top left counts relative to the parent element whose position is set to relative */
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+
+
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* background-color: red; */
+    /* this is in relation to the element itself. */
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heading-primary {
+    color: #ffffff;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 60px;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    animation-name: moveInLeft;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    /* animation-iteration-count: 3; */
+    /* animation-delay:3s; */
+
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    animation: moveInRight 1.5s ease-out;
+
+}
+
+@keyframes moveInLeft {
+
+    /* And now in here, I can specify what I want to happen
+in each moment of time of the animation. */
+    /* when animation starts */
+    0% {
+        /* browsers are optimized for opacity and transform properties */
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    /* when animation finishes */
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* So this here is a pseudo-class, it's the link pseudo-class.
+And pseudo-classes are a special state of a selector.
+So this link here is a state of the button selector. */
+/* we want the visited state to
+look at exactly like the link state, so the normal state
+of our links and so we just put them together */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    /* So we should always do this if we want to give some paddings or some heights or width to elements, */
+    display: inline-block;
+    border-radius: 100px;
+    transition:all .2s;
+    position: relative;
+}
+
+.btn:hover {
+    /* So you see transform is something really, really important. It's an extremely important property that we're using all the time to create cool and modern effects, where elements move around or even rotate or stuff, so transform is really important.  */
+    transform:translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    /* the after pseudo-element is basically treated like a child of the button. so height and width will take 100% of its parent which in this case is the button element */
+    height: 100%;
+    width:100%;
+    border-radius: 100px;
+    /* reference would be first element this would find that has position set to relative */
+    position:absolute;
+    top:0;
+    left: 0;
+    /* this is definitly behind the button because of negative z-index */
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity:0;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    /* 80% {
+        transform: translateX(-10px);
+
+    } */
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.btn-animated {
+    animation:moveInBottom .5s ease-out .75s;
+   
+/* https://www.w3schools.com/cssref/css3_pr_animation-fill-mode.asp The animation-fill-mode property specifies a style for the element when the animation is not playing (before it starts, after it ends, or both).CSS animations do not affect the element before the first keyframe is played or after the last keyframe is played. The animation-fill-mode property can override this behavior. this is happening due to delay in starting animation*/
+    animation-fill-mode: backwards;
+}
+
