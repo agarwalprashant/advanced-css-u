@@ -7,19 +7,26 @@ Dark green: #28b485
 
 */
 
-* {
+*,*::after,*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit;
+}
+
+html {
+    /* this is making our lives whole lot easier will be used everywhere for 'rem' setting */
+    /* font-size: 10px; */
+    font-size: 62.5%;
 }
 
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+    box-sizing: border-box;
 
 }
 
@@ -35,12 +42,12 @@ body {
 .logo-box {
     position: absolute;
     /* top left counts relative to the parent element whose position is set to relative */
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
 .logo {
-    height: 35px;
+    height: 3.5rem;
 }
 
 
@@ -59,14 +66,14 @@ body {
     color: #ffffff;
     text-transform: uppercase;
     backface-visibility: hidden;
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
 .heading-primary-main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     animation-name: moveInLeft;
     animation-duration: 1.5s;
     animation-timing-function: ease-out;
@@ -77,9 +84,9 @@ body {
 
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
     animation: moveInRight 1.5s ease-out;
 
 }
@@ -92,11 +99,11 @@ in each moment of time of the animation. */
     0% {
         /* browsers are optimized for opacity and transform properties */
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
 
     80% {
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
 
     /* when animation finishes */
@@ -110,11 +117,11 @@ in each moment of time of the animation. */
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
 
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
 
     }
 
@@ -134,22 +141,23 @@ of our links and so we just put them together */
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     /* So we should always do this if we want to give some paddings or some heights or width to elements, */
     display: inline-block;
-    border-radius: 100px;
+    border-radius: 10rem;
     transition:all .2s;
     position: relative;
+    font-size: 1.6rem;
 }
 
 .btn:hover {
     /* So you see transform is something really, really important. It's an extremely important property that we're using all the time to create cool and modern effects, where elements move around or even rotate or stuff, so transform is really important.  */
-    transform:translateY(-3px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    transform:translateY(-.3rem);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
 .btn:active {
-    transform: translateY(-1px);
+    transform: translateY(-.1rem);
 }
 
 .btn-white {
@@ -164,7 +172,7 @@ of our links and so we just put them together */
     /* the after pseudo-element is basically treated like a child of the button. so height and width will take 100% of its parent which in this case is the button element */
     height: 100%;
     width:100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     /* reference would be first element this would find that has position set to relative */
     position:absolute;
     top:0;
@@ -186,7 +194,7 @@ of our links and so we just put them together */
 @keyframes moveInBottom {
     0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
 
     /* 80% {
